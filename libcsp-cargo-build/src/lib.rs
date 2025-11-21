@@ -367,7 +367,7 @@ pub fn generate_autoconf_header_file(out_dir: impl AsRef<Path>, cfg: &Config) ->
     // TODO: Maybe those will be added at some point.. For now, they are hardcoded to 0.
     autoconf_file_string.push_str(&format!("#define {} {}\n", cfg_keys::HAVE_LIBSOCKETCAN, 0));
     autoconf_file_string.push_str(&format!("#define {} {}\n", cfg_keys::HAVE_LIBZMQ, 0));
-    let out_file = out_dir.join("autoconfig.h");
+    let out_file = out_dir.join("csp_autoconfig.h");
     let mut file = std::fs::File::create(out_file)?;
     file.write_all(autoconf_file_string.as_bytes())?;
     Ok(())
