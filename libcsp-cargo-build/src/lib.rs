@@ -247,7 +247,6 @@ impl Builder {
     pub fn generate_autoconf_header_file_default_location(&mut self) -> io::Result<()> {
         let mut autoconf_dir = self.out_dir.join("cfg");
         self.build.include(&autoconf_dir);
-        autoconf_dir.push("csp");
         std::fs::create_dir_all(&autoconf_dir)?;
         generate_autoconf_header_file(&autoconf_dir, &self.cfg)
     }
